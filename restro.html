@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Paradise</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff8f0;
+            color: #333;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff9800;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ff9800;
+        }
+
+        /* HERO */
+
+        .hero {
+            height: 550px;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #e68900;
+        }
+
+        /* GENERAL SECTION */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title h2 {
+            font-size: 38px;
+            color: #222;
+        }
+
+        .title p {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* MENU */
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .food-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 20px;
+        }
+
+        .food-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .food-info p {
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #ff9800;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background-color: #222;
+            color: white;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #ff9800;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        /* CONTACT */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3 {
+            color: #ff9800;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #ff9800;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            background-color: #ff9800;
+            color: white;
+            font-size: 17px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e68900;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer h2 {
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+
+        .social a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .social a:hover {
+            color: #ff9800;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            color: #888;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+
+        <div class="logo">🍴 Food Paradise</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div>
+
+            <h1>Welcome to Food Paradise</h1>
+
+            <p>Fresh Food • Great Taste • Happy Moments</p>
+
+            <a href="#menu" class="btn">Explore Menu</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <section id="menu">
+
+        <div class="title">
+
+            <h2>Our Special Menu</h2>
+
+            <p>Delicious dishes prepared specially for you</p>
+
+        </div>
+
+
+        <div class="menu-container">
+
+            <!-- Pizza -->
+
+            <div class="food-card">
+
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600"
+                     alt="Pizza">
+
+                <div class="food-info">
+
+                    <h3>🍕 Cheese Pizza</h3>
+
+                    <p>Fresh cheese pizza with delicious toppings.</p>
+
+                    <span class="price">₹199</span>
+                    <summary>Pizza</summary>
+                    <details>
+                        <p>Margherita</p>
+                        <p>Pepperoni</p>
+                        <p>Veggie</p>
+                    </details>
+
+                </div>
+
+            </div>
+
+
+            <!-- Burger -->
+
+            <div class="food-card">
+
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
+                     alt="Burger">
+
+                <div class="food-info">
+
+                    <h3>🍔 Classic Burger</h3>
+
+                    <p>Juicy burger with fresh vegetables and cheese.</p>
+
+                    <span class="price">₹149</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Pasta -->
+
+            <div class="food-card">
+
+                <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600"
+                     alt="Pasta">
+
+                <div class="food-info">
+
+                    <h3>🍝 Italian Pasta</h3>
+
+                    <p>Creamy pasta prepared with fresh ingredients.</p>
+
+                    <span class="price">₹199</span>
+                    <summary>Pasta</summary>
+                    <details>
+                        <p>Spaghetti</p>
+                        <p>Fettuccine</p>
+                        <p>Penne</p>
+                    </details>
+
+                </div>
+
+            </div>
+
+
+            <!-- Dessert -->
+
+            <div class="food-card">
+
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"
+                     alt="Chocolate Cake">
+
+                <div class="food-info">
+
+                    <h3>🍰 Chocolate Cake</h3>
+
+                    <p>Soft and delicious chocolate cake.</p>
+
+                    <span class="price">₹129</span>
+                    <summary>Cakes</summary>
+                    <details>
+                        <p>Chocolate Cake</p>
+                        <p>Vanilla Cake</p>
+                        <p>Red Velvet Cake</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>About Food Paradise</h2>
+
+        <p>
+            Food Paradise is a modern restaurant where great food meets
+            great memories. We prepare delicious dishes using fresh
+            ingredients and serve them in a comfortable and friendly
+            environment.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="title">
+
+            <h2>Contact Us</h2>
+
+            <p>We would love to hear from you!</p>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <!-- Contact Details -->
+
+            <div class="contact-info">
+
+                <h3>Get In Touch</h3>
+
+                <p>📍 <b>Address:</b><br>
+                Main Market, KIET Road,<br>
+                Ghaziabad, Uttar Pradesh</p>
+
+                <p>📞 <b>Phone:</b><br>
+                +91 98765 43210</p>
+
+                <p>📧 <b>Email:</b><br>
+                foodparadise@gmail.com</p>
+
+                <p>🕐 <b>Opening Hours:</b><br>
+                Monday - Sunday<br>
+                10:00 AM - 10:00 PM</p>
+
+            </div>
+
+
+            <!-- Contact Form -->
+
+            <form>
+
+                <h3>Send Us a Message</h3>
+
+                <br>
+
+                <input type="text"
+                       placeholder="Your Name"
+                       required>
+
+                <input type="email"
+                       placeholder="Your Email"
+                       required>
+
+                <input type="tel"
+                       placeholder="Phone Number">
+
+                <textarea rows="6"
+                          placeholder="Your Message"></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>🍴 Food Paradise</h2>
+
+        <p>Fresh Food • Great Taste • Happy Moments</p>
+
+        <br>
+
+        <div class="social">
+
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 Food Paradise | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+</html>
