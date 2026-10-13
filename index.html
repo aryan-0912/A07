@@ -1,103 +1,176 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aryan | Portfolio</title>
+    <title>QuickKart | Grocery Delivery</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <nav>
-            <h2 class="logo">Aryan.</h2>
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="#" class="logo">quick<span>kart</span></a>
 
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="delivery">
+            <strong>Delivery in 10 minutes</strong>
+            <p>Delhi NCR, India</p>
+        </div>
+
+        <input type="text" id="searchInput"
+               placeholder="Search groceries...">
+
+        <a href="#products" class="cart-btn">🛒 Shop</a>
     </header>
 
-    <section id="home" class="hero">
-        <div>
-            <p>Hello, I'm</p>
-            <h1>Aryan Shinde</h1>
-            <h2>CSE AI Student & Developer</h2>
-
-            <p>
-                I am learning programming, Artificial Intelligence
-                and web development.
-            </p>
-
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a B.Tech CSE AI student interested in Artificial
-            Intelligence, programming and building real-world projects.
-        </p>
-    </section>
-
-    <section id="skills">
-        <h2>My Skills</h2>
-
-        <div class="cards">
-            <div class="card">C / C++</div>
-            <div class="card">Python</div>
-            <div class="card">HTML</div>
-            <div class="card">CSS</div>
-            <div class="card">Artificial Intelligence</div>
-            <div class="card">Git & GitHub</div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>My Projects</h2>
-
-        <div class="cards">
-            <div class="project">
-                <h3>Medical Chatbot</h3>
-                <p>
-                    An AI-based chatbot designed to provide
-                    information from medical documents.
-                </p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text">
+                <p class="tag">YOUR DAILY ESSENTIALS</p>
+                <h1>Groceries at your<br>
+                    doorstep in <span>minutes.</span>
+                </h1>
+                <p>Fresh products, great prices and fast delivery.</p>
+                <a href="#products" class="shop-btn">Shop Now →</a>
             </div>
 
-            <div class="project">
-                <h3>Automatic Toll Gate</h3>
-                <p>
-                    Arduino-based project using an IR sensor
-                    and servo motor.
-                </p>
+            <div class="hero-image">🛍️</div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <h2>Shop by category</h2>
+
+            <div class="category-grid">
+                <button class="category active" data-category="All">
+                    🛒 All
+                </button>
+
+                <button class="category" data-category="Fruits">
+                    🍎 Fruits
+                </button>
+
+                <button class="category" data-category="Dairy">
+                    🥛 Dairy
+                </button>
+
+                <button class="category" data-category="Snacks">
+                    🍿 Snacks
+                </button>
+
+                <button class="category" data-category="Drinks">
+                    🥤 Drinks
+                </button>
+
+                <button class="category" data-category="Bakery">
+                    🍞 Bakery
+                </button>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="products-section" id="products">
+            <h2>Popular products</h2>
+            <p class="subtitle">Everything you need in one place.</p>
+
+            <div class="product-grid" id="productGrid">
+
+                <div class="product" data-category="Fruits">
+                    <div class="product-image">🍎</div>
+                    <h3>Fresh Apples</h3>
+                    <p>1 kg</p>
+                    <h4>₹120</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Fruits">
+                    <div class="product-image">🍌</div>
+                    <h3>Bananas</h3>
+                    <p>1 dozen</p>
+                    <h4>₹50</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Dairy">
+                    <div class="product-image">🥛</div>
+                    <h3>Fresh Milk</h3>
+                    <p>1 litre</p>
+                    <h4>₹60</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Dairy">
+                    <div class="product-image">🧀</div>
+                    <h3>Cheese</h3>
+                    <p>200 g</p>
+                    <h4>₹90</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Snacks">
+                    <div class="product-image">🍿</div>
+                    <h3>Popcorn</h3>
+                    <p>1 packet</p>
+                    <h4>₹40</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Snacks">
+                    <div class="product-image">🍪</div>
+                    <h3>Cookies</h3>
+                    <p>1 packet</p>
+                    <h4>₹30</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Drinks">
+                    <div class="product-image">🥤</div>
+                    <h3>Cold Drink</h3>
+                    <p>750 ml</p>
+                    <h4>₹45</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Drinks">
+                    <div class="product-image">🧃</div>
+                    <h3>Fruit Juice</h3>
+                    <p>1 litre</p>
+                    <h4>₹80</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-category="Bakery">
+                    <div class="product-image">🍞</div>
+                    <h3>Fresh Bread</h3>
+                    <p>1 packet</p>
+                    <h4>₹35</h4>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
             </div>
 
-            <div class="project">
-                <h3>Smart Street Light</h3>
-                <p>
-                    An automated lighting system using sensors
-                    and Arduino.
-                </p>
-            </div>
-        </div>
-    </section>
+            <p id="noResults">No products found.</p>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: aryan090@gmail.com</p>
-        <p>GitHub: github.com</p>
-    </section>
+        <!-- Offer -->
+        <section class="offer">
+            <div>
+                <p>WEEKLY SPECIAL</p>
+                <h2>Save more on every order!</h2>
+                <p>Discover great deals on everyday essentials.</p>
+            </div>
+            <div class="offer-icon">🎁</div>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2026 Aryan Shinde. All Rights Reserved.</p>
+        <h2>quick<span>kart</span></h2>
+        <p>Freshness delivered. Made for everyday living.</p>
+        <p>© 2026 QuickKart .Get  everything in minutes</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
